@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { navigation } from "@/lib/navigation";
 
 export function Footer() {
@@ -6,8 +7,8 @@ export function Footer() {
     <footer className="site-footer">
       <div className="footer-grid">
         <div className="footer-brand">
-          <p className="brand-lockup" style={{ color: "inherit", letterSpacing: "0.08em" }}>
-            The Home Shopee
+          <p className="brand-lockup brand-lockup--footer">
+            <BrandLogo variant="white" className="brand-logo brand-logo--footer" />
           </p>
           <p>
             Soft light, layered textures, and a full catalogue of décor—from

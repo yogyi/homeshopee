@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { WhatsAppCheckout } from "@/components/cart/WhatsAppCheckout";
 import { useCart } from "@/components/cart/CartProvider";
 import { formatINR } from "@/lib/products";
 
 export default function CartPage() {
-  const { items, updateQuantity, removeItem, subtotal, openCart } = useCart();
+  const { items, updateQuantity, removeItem, subtotal } = useCart();
 
   return (
     <div className="cart-page">
@@ -79,14 +80,10 @@ export default function CartPage() {
               <strong>{formatINR(subtotal)}</strong>
             </div>
             <p className="cart-note">
-              Shipping & taxes calculated at checkout.
+              Checkout on WhatsApp for now. We&rsquo;ll confirm shipping and
+              payment there. A real payment gateway can replace this later.
             </p>
-            <button type="button" className="btn btn--primary" onClick={openCart}>
-              Proceed to checkout
-              <span className="btn__icon" aria-hidden>
-                →
-              </span>
-            </button>
+            <WhatsAppCheckout items={items} subtotal={subtotal} />
             <Link href="/collections/new-arrivals" className="btn btn--ghost">
               Continue shopping
             </Link>

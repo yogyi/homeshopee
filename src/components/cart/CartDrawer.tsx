@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { WhatsAppCheckout } from "@/components/cart/WhatsAppCheckout";
 import { useCart } from "@/components/cart/CartProvider";
 import { formatINR } from "@/lib/products";
 
@@ -104,14 +105,13 @@ export function CartDrawer() {
               <span>Subtotal</span>
               <strong>{formatINR(subtotal)}</strong>
             </div>
-            <p className="cart-note">Shipping & taxes calculated at checkout.</p>
-            <Link href="/cart" className="btn btn--primary" onClick={closeCart}>
+            <p className="cart-note">
+              Checkout on WhatsApp for now. A payment gateway can be added later.
+            </p>
+            <WhatsAppCheckout items={items} subtotal={subtotal} />
+            <Link href="/cart" className="btn btn--ghost" onClick={closeCart}>
               View cart
-              <span className="btn__icon" aria-hidden>→</span>
             </Link>
-            <button type="button" className="btn btn--ghost" onClick={closeCart}>
-              Continue shopping
-            </button>
           </div>
         ) : null}
       </aside>

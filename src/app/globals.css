@@ -27,6 +27,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -36,6 +37,7 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   line-height: 1.55;
   min-height: 100dvh;
+  overflow-x: clip;
 }
 
 body::before {
@@ -92,6 +94,8 @@ input {
   cursor: pointer;
   border-radius: 999px;
   padding: 0.95rem 1.4rem;
+  max-width: 100%;
+  text-wrap: balance;
   transition: transform 0.45s var(--ease), background 0.45s var(--ease),
     color 0.45s var(--ease);
 }
@@ -184,8 +188,11 @@ input {
 
 .promo-carousel__text {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   letter-spacing: 0.02em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .promo-carousel__text u {
@@ -200,7 +207,7 @@ input {
 .header-bar__inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0.75rem 1rem;
+  padding: 0.45rem 1rem;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -208,14 +215,32 @@ input {
 }
 
 .brand-lockup {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(1.05rem, 3.6vw, 1.35rem);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 500;
-  white-space: nowrap;
-  color: #f7f4ec;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.brand-logo {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand-logo--header {
+  height: 2.7rem;
+  width: auto;
+  max-width: min(42vw, 8.5rem);
+}
+
+.brand-logo--drawer {
+  height: 3.4rem;
+  width: auto;
+}
+
+.brand-logo--footer {
+  height: 3.25rem;
+  width: auto;
+  margin-bottom: 0.5rem;
 }
 
 .header-links {
@@ -496,9 +521,9 @@ input {
     padding: 0.85rem 2rem;
   }
 
-  .brand-lockup {
-    font-size: 1.2rem;
-    letter-spacing: 0.18em;
+  .brand-logo--header {
+    height: 3.85rem;
+    max-width: 11rem;
   }
 
   .header-links {
@@ -507,6 +532,10 @@ input {
 
   .promo-carousel {
     padding-inline: 2rem;
+  }
+
+  .promo-carousel__text {
+    font-size: 0.78rem;
   }
 }
 
@@ -621,15 +650,16 @@ input {
 
 .cart-line {
   display: grid;
-  grid-template-columns: 88px 1fr auto;
-  gap: 0.85rem;
+  grid-template-columns: 72px minmax(0, 1fr) auto;
+  gap: 0.65rem;
   align-items: start;
 }
 
 .cart-line__media {
   position: relative;
-  width: 88px;
-  height: 110px;
+  width: 100%;
+  max-width: 88px;
+  height: 90px;
   border-radius: 0.85rem;
   overflow: hidden;
   background: var(--bg-soft);
@@ -639,6 +669,7 @@ input {
   font-family: var(--font-display), Georgia, serif;
   font-size: 1.05rem;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .cart-line__info p {
@@ -753,6 +784,10 @@ input {
   gap: 0.75rem;
 }
 
+.hero__cta .btn {
+  flex: 1 1 12rem;
+}
+
 .section {
   padding: 4.5rem 1.25rem;
   max-width: 1400px;
@@ -767,8 +802,9 @@ input {
 .section-head {
   display: flex;
   justify-content: space-between;
-  align-items: end;
-  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
   margin-bottom: 2rem;
 }
 
@@ -1190,9 +1226,10 @@ input {
 .product-card__body h3 {
   margin: 0;
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 500;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .product-card__price {
@@ -1382,6 +1419,15 @@ input {
   gap: 0.75rem;
 }
 
+.purchase__row .btn {
+  flex: 1 1 100%;
+}
+
+.cart-drawer__foot .btn,
+.cart-page .btn {
+  width: 100%;
+}
+
 .purchase__perks {
   margin: 0;
   padding: 0;
@@ -1437,7 +1483,7 @@ input {
   margin: 0 auto;
 }
 
-.footer-brand p:not(.brand__mark) {
+.footer-brand p:not(.brand-lockup) {
   color: rgba(244, 239, 228, 0.72);
   max-width: 22rem;
 }
@@ -1471,11 +1517,13 @@ input {
 
 .newsletter {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
 .newsletter input {
-  flex: 1;
+  flex: 1 1 10rem;
+  min-width: 0;
   border: 1px solid rgba(244, 239, 228, 0.18);
   background: rgba(255, 255, 255, 0.04);
   color: #f4efe4;
@@ -1589,6 +1637,25 @@ input {
 
 }
 
+@media (min-width: 640px) {
+  .purchase__row .btn {
+    flex: 1 1 auto;
+  }
+
+  .cart-line {
+    grid-template-columns: 88px minmax(0, 1fr) auto;
+    gap: 0.85rem;
+  }
+
+  .cart-line__media {
+    height: 110px;
+  }
+
+  .product-card__body h3 {
+    font-size: 1.15rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .btn,
@@ -1603,5 +1670,9 @@ input {
     opacity: 1;
     transform: none;
     filter: none;
+  }
+
+  .marquee__track {
+    animation: none;
   }
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/components/cart/CartProvider";
 import { formatINR } from "@/lib/products";
+import { getWhatsAppCheckoutUrl } from "@/lib/whatsapp";
 import type { Product } from "@/lib/types";
 
 export function ProductPurchase({ product }: { product: Product }) {
@@ -48,6 +49,17 @@ export function ProductPurchase({ product }: { product: Product }) {
             →
           </span>
         </button>
+        <a
+          href={getWhatsAppCheckoutUrl(
+            [{ product, quantity: qty }],
+            product.price * qty,
+          )}
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn--ghost"
+        >
+          Order on WhatsApp
+        </a>
       </div>
       <ul className="purchase__perks">
         <li>Pan-India shipping</li>

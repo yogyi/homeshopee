@@ -15,7 +15,8 @@ export default function ContactPage() {
         <a href="https://www.instagram.com/the_home_shopee" target="_blank" rel="noreferrer">
           @the_home_shopee
         </a>
-        .
+        . Checkout currently happens on WhatsApp after you add pieces to your
+        cart.
       </p>
       <p>
         Our team typically responds within 24 hours. We&rsquo;re happy to help with

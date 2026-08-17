@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "@/components/cart/CartProvider";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { navigation } from "@/lib/navigation";
 
 const PROMOS = [
@@ -100,7 +101,7 @@ export function Header() {
             className="brand-lockup"
             onClick={() => setMobileOpen(false)}
           >
-            The Home Shopee
+            <BrandLogo variant="white" className="brand-logo brand-logo--header" priority />
           </Link>
 
           <nav className="header-links" aria-label="Primary">
@@ -197,7 +198,7 @@ export function Header() {
         />
         <div className="mobile-drawer__panel">
           <div className="mobile-drawer__head">
-            <p>Menu</p>
+            <BrandLogo variant="black" className="brand-logo brand-logo--drawer" />
             <button type="button" onClick={() => setMobileOpen(false)}>
               Close
             </button>
