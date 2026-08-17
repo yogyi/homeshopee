@@ -20,10 +20,12 @@ export function buildWhatsAppOrderMessage(items: CartItem[], subtotal: number) {
   ].join("\n");
 }
 
+export function getWhatsAppContactUrl(message?: string) {
+  const base = `https://wa.me/${WHATSAPP_NUMBER}`;
+  if (!message) return base;
+  return `${base}?text=${encodeURIComponent(message)}`;
+}
+
 export function getWhatsAppCheckoutUrl(items: CartItem[], subtotal: number) {
-  const text = encodeURIComponent(buildWhatsAppOrderMessage(items, subtotal));
-  if (WHATSAPP_NUMBER) {
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-  }
-  return `https://wa.me/?text=${text}`;
+  return getWhatsAppContactUrl(buildWhatsAppOrderMessage(items, subtotal));
 }

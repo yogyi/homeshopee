@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/layout/BrandLogo";
 import { navigation } from "@/lib/navigation";
+import { WHATSAPP_DISPLAY } from "@/lib/site";
+import { getWhatsAppContactUrl } from "@/lib/whatsapp";
 
 export function Footer() {
   return (
@@ -15,6 +17,13 @@ export function Footer() {
             showpieces and dinnerware to paintings and botanicals. A luxury
             home house for India.
           </p>
+          <a
+            href={getWhatsAppContactUrl()}
+            target="_blank"
+            rel="noreferrer"
+          >
+            WhatsApp · {WHATSAPP_DISPLAY}
+          </a>
           <a
             href="https://www.instagram.com/the_home_shopee"
             target="_blank"

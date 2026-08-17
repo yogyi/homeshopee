@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { WHATSAPP_DISPLAY } from "@/lib/site";
+import { getWhatsAppContactUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -10,8 +12,12 @@ export default function ContactPage() {
       <p className="eyebrow">Contact</p>
       <h1>We&rsquo;d love to hear from you.</h1>
       <p>
-        For orders, styling questions, or wholesale enquiries, reach out via
-        Instagram DM at{" "}
+        For orders, styling questions, or wholesale enquiries, message us on
+        WhatsApp at{" "}
+        <a href={getWhatsAppContactUrl()} target="_blank" rel="noreferrer">
+          {WHATSAPP_DISPLAY}
+        </a>
+        , or Instagram DM at{" "}
         <a href="https://www.instagram.com/the_home_shopee" target="_blank" rel="noreferrer">
           @the_home_shopee
         </a>

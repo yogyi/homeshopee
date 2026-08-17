@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CollectionCircles } from "@/components/layout/CollectionCircles";
 import { ProductCard } from "@/components/product/ProductCard";
+import { InstagramReels } from "@/components/social/InstagramReels";
 import { Reveal } from "@/components/ui/Reveal";
 import { editorialBands } from "@/lib/navigation";
 import {
@@ -87,6 +88,8 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+
+      <InstagramReels />
 
       <section className="section">
         <Reveal>

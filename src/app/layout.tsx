@@ -30,6 +30,13 @@ export const metadata: Metadata = {
     description: "A full house of beautiful finds. Shop décor like the collectors do.",
     type: "website",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
