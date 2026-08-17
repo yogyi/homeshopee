@@ -89,8 +89,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      <InstagramReels />
-
       <section className="section">
         <Reveal>
           <div className="section-head">
@@ -214,6 +212,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <InstagramReels />
 
       <section className="promise-band">
         <Reveal>
