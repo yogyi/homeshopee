@@ -26,16 +26,6 @@ export const navigation: NavItem[] = [
     ],
   },
   {
-    label: "Lighting",
-    href: "/collections/lighting",
-    slug: "lighting",
-    children: [
-      { label: "All Lighting", href: "/collections/lighting", slug: "lighting" },
-      { label: "Table Lamps", href: "/collections/table-lamps", slug: "table-lamps" },
-      { label: "Floor Lamps", href: "/collections/floor-lamps", slug: "floor-lamps" },
-    ],
-  },
-  {
     label: "Dinnerware",
     href: "/collections/dinnerware",
     slug: "dinnerware",
@@ -55,16 +45,6 @@ export const navigation: NavItem[] = [
     label: "Paintings",
     href: "/collections/paintings",
     slug: "paintings",
-  },
-  {
-    label: "Furniture",
-    href: "/collections/furniture",
-    slug: "furniture",
-    children: [
-      { label: "All Furniture", href: "/collections/furniture", slug: "furniture" },
-      { label: "Bar Trolleys", href: "/collections/bar-trolleys", slug: "bar-trolleys" },
-      { label: "Consoles", href: "/collections/consoles", slug: "consoles" },
-    ],
   },
   {
     label: "Sale",
@@ -122,23 +102,6 @@ export const collectionMeta: Record<
     category: "planters-plants",
     subcategory: "plants",
   },
-  lighting: {
-    title: "Lighting",
-    description: "Table lamps and floor lamps that set the mood of every room.",
-    category: "lighting",
-  },
-  "table-lamps": {
-    title: "Table Lamps",
-    description: "Glow for bedside, console, and reading corners.",
-    category: "lighting",
-    subcategory: "table-lamps",
-  },
-  "floor-lamps": {
-    title: "Floor Lamps",
-    description: "Tall, architectural light for evenings at home.",
-    category: "lighting",
-    subcategory: "floor-lamps",
-  },
   dinnerware: {
     title: "Dinnerware",
     description: "Tea sets, glassware, and German silver for gathered tables.",
@@ -173,23 +136,6 @@ export const collectionMeta: Record<
     description: "Wall art that anchors a room with colour and calm.",
     category: "paintings",
   },
-  furniture: {
-    title: "Furniture",
-    description: "Consoles, bar trolleys, and pieces that host conversation.",
-    category: "furniture",
-  },
-  "bar-trolleys": {
-    title: "Bar Trolleys",
-    description: "Roll in hospitality with brass and glass.",
-    category: "furniture",
-    subcategory: "bar-trolleys",
-  },
-  consoles: {
-    title: "Consoles",
-    description: "Entryway furniture with sculptural flair.",
-    category: "furniture",
-    subcategory: "consoles",
-  },
   sale: {
     title: "Sale",
     description: "Curated luxury pieces at kinder prices—while stocks last.",
@@ -220,19 +166,9 @@ export const circleCollections = [
     image: "/collections/cat-glassware.jpg",
   },
   {
-    title: "Lighting",
-    href: "/collections/lighting",
-    image: "/collections/cat-lighting.jpg",
-  },
-  {
     title: "Paintings",
     href: "/collections/paintings",
     image: "/collections/cat-paintings.jpg",
-  },
-  {
-    title: "Furniture",
-    href: "/collections/furniture",
-    image: "/collections/cat-furniture.jpg",
   },
   {
     title: "Clocks",
@@ -240,14 +176,9 @@ export const circleCollections = [
     image: "/collections/cat-clocks.jpg",
   },
   {
-    title: "Bar Trolleys",
-    href: "/collections/bar-trolleys",
-    image: "/collections/cat-bar-trolley.jpg",
-  },
-  {
     title: "Planters",
     href: "/collections/planters",
-    image: "/products/the-arlo-woven-vessel.jpg",
+    image: "/products/catalog/hs-1104-floral-square.jpg",
   },
 ];
 

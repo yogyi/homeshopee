@@ -12,9 +12,9 @@ export default function AboutPage() {
       <p className="eyebrow">Our story</p>
       <h1>A full house of luxurious finds.</h1>
       <p>
-        The Home Shopee is a luxury home-décor destination—showpieces, lighting,
-        dinnerware, paintings, furniture, clocks, and botanicals—curated for
-        homes that want presence without noise.
+        The Home Shopee is a luxury home-décor destination—showpieces,
+        dinnerware, paintings, clocks, and botanicals—curated for homes that
+        want presence without noise.
       </p>
       <p>
         We organise shopping the way collectors browse: beautifully curated

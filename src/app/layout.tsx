@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s · The Home Shopee",
   },
   description:
-    "Shop luxury home décor online—showpieces, lighting, dinnerware, paintings, furniture, clocks, and botanicals. Curated for soft, lived-in Indian homes.",
+    "Shop luxury home décor online—showpieces, dinnerware, paintings, clocks, and botanicals. Curated for soft, lived-in Indian homes.",
   openGraph: {
     title: "The Home Shopee — Luxury Home Decor",
     description: "A full house of beautiful finds. Shop décor like the collectors do.",

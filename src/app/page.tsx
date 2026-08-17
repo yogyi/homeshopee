@@ -5,6 +5,8 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { editorialBands } from "@/lib/navigation";
 import {
+  getCatalogPlanters,
+  getCatalogSculptures,
   getFeaturedProducts,
   getNewArrivals,
   getProductsForCollection,
@@ -12,10 +14,18 @@ import {
 } from "@/lib/products";
 
 export default function HomePage() {
-  const arrivals = getNewArrivals();
-  const featured = getFeaturedProducts().slice(0, 8);
-  const decor = getProductsForCollection("home-decor").slice(0, 4);
-  const lighting = getProductsForCollection("lighting").slice(0, 4);
+  const planters = getCatalogPlanters();
+  const sculptures = getCatalogSculptures();
+  const catalogIds = new Set([...planters, ...sculptures].map((p) => p.id));
+  const arrivals = getNewArrivals()
+    .filter((p) => !catalogIds.has(p.id))
+    .slice(0, 8);
+  const featured = getFeaturedProducts()
+    .filter((p) => !catalogIds.has(p.id))
+    .slice(0, 8);
+  const decor = getProductsForCollection("home-decor")
+    .filter((p) => !catalogIds.has(p.id))
+    .slice(0, 4);
   const trustCount = products.length;
 
   return (
@@ -39,8 +49,8 @@ export default function HomePage() {
           </p>
           <h1>Luxury home décor, curated for living.</h1>
           <p>
-            Showpieces, lighting, dinnerware, paintings, furniture, and
-            botanicals—an entire house of beautiful finds.
+            Showpieces, dinnerware, paintings, clocks, and botanicals—an
+            entire house of beautiful finds.
           </p>
           <div className="hero__cta">
             <Link href="/collections/new-arrivals" className="btn btn--primary">
@@ -77,6 +87,44 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+
+      <section className="section">
+        <Reveal>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">The planter house</p>
+              <h2>Sets of three, ready for home</h2>
+            </div>
+            <Link href="/collections/planters">Shop planters</Link>
+          </div>
+        </Reveal>
+        <div className="product-grid">
+          {planters.map((product, i) => (
+            <Reveal key={product.id} delay={(i % 4) * 45}>
+              <ProductCard product={product} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <Reveal>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Sculptural décor</p>
+              <h2>Showpieces for the console</h2>
+            </div>
+            <Link href="/collections/showpieces">Shop showpieces</Link>
+          </div>
+        </Reveal>
+        <div className="product-grid">
+          {sculptures.map((product, i) => (
+            <Reveal key={product.id} delay={(i % 4) * 45}>
+              <ProductCard product={product} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
       <section className="section">
         <Reveal>
@@ -144,25 +192,6 @@ export default function HomePage() {
           </div>
         </section>
       ))}
-
-      <section className="section">
-        <Reveal>
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">Glow</p>
-              <h2>Lighting edit</h2>
-            </div>
-            <Link href="/collections/lighting">View lighting</Link>
-          </div>
-        </Reveal>
-        <div className="product-grid">
-          {lighting.map((product, i) => (
-            <Reveal key={product.id} delay={i * 45}>
-              <ProductCard product={product} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       <section className="section">
         <Reveal>

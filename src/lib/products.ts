@@ -20,6 +20,14 @@ export function getFeaturedProducts() {
   return products.filter((p) => p.featured);
 }
 
+export function getCatalogPlanters() {
+  return products.filter((p) => p.id.startsWith("hs-"));
+}
+
+export function getCatalogSculptures() {
+  return products.filter((p) => p.id.startsWith("sc-"));
+}
+
 export function getNewArrivals() {
   return products.filter((p) => p.badge === "New");
 }

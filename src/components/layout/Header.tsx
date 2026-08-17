@@ -179,7 +179,7 @@ export function Header() {
             <IconSearch />
             <input
               type="search"
-              placeholder="Search décor, lighting, dinnerware…"
+              placeholder="Search décor, dinnerware, paintings…"
               autoFocus
               aria-label="Search"
             />

@@ -11,8 +11,8 @@ export function Footer() {
           </p>
           <p>
             Soft light, layered textures, and a full catalogue of décor—from
-            showpieces and lighting to dinnerware and furniture. A luxury home
-            house for India.
+            showpieces and dinnerware to paintings and botanicals. A luxury
+            home house for India.
           </p>
           <a
             href="https://www.instagram.com/the_home_shopee"

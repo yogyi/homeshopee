@@ -38,8 +38,8 @@ export default async function CollectionPage({ params }: Props) {
           <p>
             This collection is part of the full Home Shopee house. Product
             photography for {meta.title.toLowerCase()} will appear here as the
-            client Drive listing grows—browse Decor, Lighting, or New Arrivals
-            in the meantime.
+            client Drive listing grows—browse Decor, Dinnerware, or New
+            Arrivals in the meantime.
           </p>
         </div>
       ) : (
