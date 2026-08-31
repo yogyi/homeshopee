@@ -94,6 +94,7 @@ export function Footer() {
 
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} The Home Shopee. All rights reserved.</p>
+        <p className="footer-credit">Made by Karm</p>
       </div>
     </footer>
   );
