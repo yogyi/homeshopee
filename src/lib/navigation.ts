@@ -18,6 +18,8 @@ export const navigation: NavItem[] = [
       { label: "All Decor", href: "/collections/home-decor", slug: "home-decor" },
       { label: "Showpieces", href: "/collections/showpieces", slug: "showpieces" },
       { label: "Clocks", href: "/collections/clocks", slug: "clocks" },
+      { label: "Dustbins", href: "/collections/dustbins", slug: "dustbins" },
+      { label: "Baskets", href: "/collections/baskets", slug: "baskets" },
       {
         label: "Planters & Plants",
         href: "/collections/planters-plants",
@@ -31,6 +33,7 @@ export const navigation: NavItem[] = [
     slug: "dinnerware",
     children: [
       { label: "All Dinnerware", href: "/collections/dinnerware", slug: "dinnerware" },
+      { label: "Serving Trays", href: "/collections/serving-trays", slug: "serving-trays" },
       { label: "Tea Sets", href: "/collections/tea-sets", slug: "tea-sets" },
       { label: "Mugs", href: "/collections/mugs", slug: "mugs" },
       { label: "Glassware", href: "/collections/glassware", slug: "glassware" },
@@ -79,6 +82,18 @@ export const collectionMeta: Record<
     category: "home-decor",
     subcategory: "clocks",
   },
+  dustbins: {
+    title: "Dustbins",
+    description: "Ribbed pedal and sensor bins. Height 12 in. Each style comes in 6 litre and 12 litre.",
+    category: "home-decor",
+    subcategory: "dustbins",
+  },
+  baskets: {
+    title: "Baskets",
+    description: "Rope, rattan, and willow baskets for the room.",
+    category: "home-decor",
+    subcategory: "baskets",
+  },
   showpieces: {
     title: "Showpieces",
     description: "Sculptural tabletop décor with presence and polish.",
@@ -104,8 +119,14 @@ export const collectionMeta: Record<
   },
   dinnerware: {
     title: "Dinnerware",
-    description: "Tea sets, glassware, and German silver for gathered tables.",
+    description: "Serving trays, tea sets, glassware, and German silver for gathered tables.",
     category: "dinnerware",
+  },
+  "serving-trays": {
+    title: "Serving Trays",
+    description: "Trays for the table, each at ₹5,000. Sizes are taken from the inch tape.",
+    category: "dinnerware",
+    subcategory: "serving-trays",
   },
   "tea-sets": {
     title: "Tea Sets",
@@ -154,6 +175,11 @@ export const circleCollections = [
     title: "Decor",
     href: "/collections/home-decor",
     image: "/collections/cat-decor.jpg",
+  },
+  {
+    title: "Serving Trays",
+    href: "/collections/serving-trays",
+    image: "/products/trays/tray-05.jpg",
   },
   {
     title: "Dinnerware",

@@ -6,8 +6,12 @@ import { InstagramReels } from "@/components/social/InstagramReels";
 import { Reveal } from "@/components/ui/Reveal";
 import { editorialBands } from "@/lib/navigation";
 import {
+  getCatalogBaskets,
+  getCatalogBins,
+  getCatalogMagnolias,
   getCatalogPlanters,
   getCatalogSculptures,
+  getCatalogTrays,
   getFeaturedProducts,
   getNewArrivals,
   getProductsForCollection,
@@ -17,7 +21,15 @@ import {
 export default function HomePage() {
   const planters = getCatalogPlanters();
   const sculptures = getCatalogSculptures();
-  const catalogIds = new Set([...planters, ...sculptures].map((p) => p.id));
+  const trays = getCatalogTrays();
+  const magnolias = getCatalogMagnolias();
+  const bins = getCatalogBins();
+  const baskets = getCatalogBaskets();
+  const catalogIds = new Set(
+    [...planters, ...sculptures, ...trays, ...magnolias, ...bins, ...baskets].map(
+      (p) => p.id,
+    ),
+  );
   const arrivals = getNewArrivals()
     .filter((p) => !catalogIds.has(p.id))
     .slice(0, 8);
@@ -93,6 +105,25 @@ export default function HomePage() {
         <Reveal>
           <div className="section-head">
             <div>
+              <p className="eyebrow">For the table</p>
+              <h2>Serving trays</h2>
+            </div>
+            <Link href="/collections/serving-trays">Shop trays</Link>
+          </div>
+        </Reveal>
+        <div className="product-grid">
+          {trays.map((product, i) => (
+            <Reveal key={product.id} delay={(i % 4) * 45}>
+              <ProductCard product={product} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <Reveal>
+          <div className="section-head">
+            <div>
               <p className="eyebrow">The planter house</p>
               <h2>Sets of three, ready for home</h2>
             </div>
@@ -101,6 +132,63 @@ export default function HomePage() {
         </Reveal>
         <div className="product-grid">
           {planters.map((product, i) => (
+            <Reveal key={product.id} delay={(i % 4) * 45}>
+              <ProductCard product={product} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <Reveal>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Faux trees</p>
+              <h2>Magnolias</h2>
+            </div>
+            <Link href="/collections/plants">Shop plants</Link>
+          </div>
+        </Reveal>
+        <div className="product-grid">
+          {magnolias.map((product, i) => (
+            <Reveal key={product.id} delay={(i % 4) * 45}>
+              <ProductCard product={product} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <Reveal>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">For the kitchen</p>
+              <h2>Dustbins</h2>
+            </div>
+            <Link href="/collections/dustbins">Shop dustbins</Link>
+          </div>
+        </Reveal>
+        <div className="product-grid">
+          {bins.map((product, i) => (
+            <Reveal key={product.id} delay={(i % 4) * 45}>
+              <ProductCard product={product} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <Reveal>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Woven</p>
+              <h2>Baskets</h2>
+            </div>
+            <Link href="/collections/baskets">Shop baskets</Link>
+          </div>
+        </Reveal>
+        <div className="product-grid">
+          {baskets.map((product, i) => (
             <Reveal key={product.id} delay={(i % 4) * 45}>
               <ProductCard product={product} />
             </Reveal>
@@ -229,26 +317,26 @@ export default function HomePage() {
             {
               title: "Curated, not crowded",
               body: "Pieces chosen for form, finish, and real Indian homes.",
-              image: "/collections/cat-decor.jpg",
-              href: "/collections/home-decor",
+              image: "/products/catalog/hs-1112-ribbed-indoor.jpg",
+              href: "/collections/planters",
             },
             {
               title: "Secure packaging",
               body: "Layered cartons built for glass, ceramic, and metal.",
-              image: "/collections/cat-glassware.jpg",
-              href: "/collections/glassware",
+              image: "/products/trays/tray-11.jpg",
+              href: "/collections/serving-trays",
             },
             {
               title: "Pay on delivery",
               body: "COD on eligible orders—doorstep calm when you want it.",
-              image: "/products/curated/prod-tea-set.jpg",
-              href: "/collections/dinnerware",
+              image: "/products/plants/magnolia-01.jpg",
+              href: "/collections/plants",
             },
             {
               title: "Easy returns",
               body: "Unused pieces return within 7 days—no drama.",
-              image: "/products/curated/prod-peacock-bowl.jpg",
-              href: "/collections/showpieces",
+              image: "/products/baskets/basket-05.jpg",
+              href: "/collections/baskets",
             },
           ].map((item, i) => (
             <Reveal key={item.title} delay={i * 50}>

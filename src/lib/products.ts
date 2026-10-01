@@ -28,6 +28,22 @@ export function getCatalogSculptures() {
   return products.filter((p) => p.id.startsWith("sc-"));
 }
 
+export function getCatalogTrays() {
+  return products.filter((p) => p.id.startsWith("st-"));
+}
+
+export function getCatalogMagnolias() {
+  return products.filter((p) => p.id.startsWith("pl-"));
+}
+
+export function getCatalogBins() {
+  return products.filter((p) => p.id.startsWith("db-"));
+}
+
+export function getCatalogBaskets() {
+  return products.filter((p) => p.id.startsWith("bk-"));
+}
+
 export function getNewArrivals() {
   return products.filter((p) => p.badge === "New");
 }

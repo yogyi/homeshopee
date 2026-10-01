@@ -4,10 +4,14 @@ import { useEffect, useRef } from "react";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/site";
 
 const REELS = [
-  "Dbh4WCNJnvz",
-  "DaKlCwXpPQn",
-  "DZJoO6SphUm",
-  "DY4ERkcMqg1",
+  "DdoijYApbp2",
+  "Ddl4uzkpVca",
+  "DdeRwmupjdm",
+  "DddnlPbJW6q",
+  "DdWhBBOJyNe",
+  "DdHG-O9pwTU",
+  "Dc8xPTVp2rJ",
+  "DcX_VlUpt9o",
 ];
 
 export function InstagramReels() {
